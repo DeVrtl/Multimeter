@@ -14,6 +14,16 @@ public class RegulatorRotation : MonoBehaviour
         _inputs.Regulator.MouseScrollY.performed += ctx => _mouseScrollY = ctx.ReadValue<float>();
     }
 
+    private void OnEnable()
+    {
+        _inputs.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _inputs.Disable();
+    }
+
     private void Update()
     {
         if (_mouseScrollY > 0)
@@ -27,13 +37,4 @@ public class RegulatorRotation : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        _inputs.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _inputs.Disable();
-    }
 }

@@ -1,12 +1,9 @@
 using UnityEngine;
-using TMPro;
 
 [RequireComponent(typeof(Resistance))]
-public class ResistanceHandler : MonoBehaviour
+public class ResistanceHandler : Handler
 {
     [SerializeField] private BaseValues _baseValues;
-    [SerializeField] private TMP_Text _multimeterDisplay;
-    [SerializeField] private TMP_Text _canvas;
 
     private Resistance _resistance;
 
@@ -26,7 +23,6 @@ public class ResistanceHandler : MonoBehaviour
 
     private void OnPassed()
     {
-        _multimeterDisplay.text = _baseValues.Resistance.ToString();
-        _canvas.text = _baseValues.Resistance.ToString();
+        RewriteText(_baseValues.Resistance);
     }
 }

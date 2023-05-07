@@ -1,12 +1,9 @@
 using UnityEngine;
-using TMPro;
 
 [RequireComponent(typeof(AlternatingVoltage))]
-public class AlternatingVoltageHandler : MonoBehaviour
+public class AlternatingVoltageHandler : Handler
 {
     [SerializeField] private BaseValues _baseValues;
-    [SerializeField] private TMP_Text _multimeterDisplay;
-    [SerializeField] private TMP_Text _canvas;
 
     private AlternatingVoltage _alternatingVoltage;
 
@@ -27,7 +24,6 @@ public class AlternatingVoltageHandler : MonoBehaviour
 
     private void OnPassed()
     {
-        _multimeterDisplay.text = _baseValues.AlternatingVoltage.ToString();
-        _canvas.text = _baseValues.AlternatingVoltage.ToString();
+        RewriteText(_baseValues.AlternatingVoltage);
     }
 }
